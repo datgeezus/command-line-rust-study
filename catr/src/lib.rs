@@ -46,7 +46,9 @@ pub fn get_args() -> MyResult<Config> {
     })
 }
 
-pub fn run() -> MyResult<()> {
-    println!("Hello, world!");
+pub fn run(config: Config) -> MyResult<()> {
+    for filename in config.files {
+        println!("{}", filename);
+    }
     Ok(())
 }
