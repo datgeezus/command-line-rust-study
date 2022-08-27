@@ -22,9 +22,10 @@ pub fn get_args() -> MyResult<Config> {
                 .multiple_values(true)
                 .default_value("-"),
         )
-        .arg(Arg::with_name("number_lines")
+        .arg(Arg::with_name("number")
             .short('n')
             .long("number")
+            .help("Number lines")
             .takes_value(false)
             .conflicts_with("number_nonblank")
         )
@@ -41,8 +42,8 @@ pub fn get_args() -> MyResult<Config> {
             .expect("`files` is required")
             .cloned()
             .collect(),
-        number_lines: matches.is_present("number_lines"),
-        number_nonblank_lines: matches.is_present("number_nonblank_lines")
+        number_lines: matches.is_present("number"),
+        number_nonblank_lines: matches.is_present("number_nonblank")
     })
 }
 
